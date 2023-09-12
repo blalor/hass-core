@@ -250,7 +250,8 @@ class ISYBinarySensorEntity(ISYNodeEntity, BinarySensorEntity):
     ) -> None:
         """Initialize the ISY binary sensor device."""
         super().__init__(node, device_info=device_info)
-        self._device_class = force_device_class
+        # This was discovered by parsing the device type code during init
+        self._attr_device_class = force_device_class
 
     @property
     def is_on(self) -> bool | None:
@@ -258,14 +259,6 @@ class ISYBinarySensorEntity(ISYNodeEntity, BinarySensorEntity):
         if self._node.status == ISY_VALUE_UNKNOWN:
             return None
         return bool(self._node.status)
-
-    @cached_property
-    def device_class(self) -> BinarySensorDeviceClass | None:
-        """Return the class of this device.
-
-        This was discovered by parsing the device type code during init
-        """
-        return self._device_class
 
 
 class ISYInsteonBinarySensorEntity(ISYBinarySensorEntity):
