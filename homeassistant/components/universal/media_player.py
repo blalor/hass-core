@@ -6,7 +6,6 @@ from typing import Any
 
 import voluptuous as vol
 
-from homeassistant.backports.functools import cached_property
 from homeassistant.components.media_player import (
     ATTR_APP_ID,
     ATTR_APP_NAME,
