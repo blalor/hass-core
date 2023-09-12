@@ -281,6 +281,7 @@ class WeatherTemplate(TemplateEntity, WeatherEntity):
     def forecast(self) -> list[Forecast]:
         """Return the forecast."""
         return self._forecast
+
     async def async_forecast_daily(self) -> list[Forecast]:
         """Return the daily forecast in native units."""
         return self._forecast_daily
