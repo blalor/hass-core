@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import voluptuous as vol
 
-from homeassistant.backports.functools import cached_property
 from homeassistant.components.sensor import (
     PLATFORM_SCHEMA,
     SensorDeviceClass,
