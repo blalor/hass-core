@@ -8,7 +8,6 @@ from typing import Any
 
 import voluptuous as vol
 
-from homeassistant.backports.functools import cached_property
 from homeassistant.components import cover
 from homeassistant.components.cover import (
     ATTR_POSITION,
