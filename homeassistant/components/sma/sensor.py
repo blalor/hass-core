@@ -5,7 +5,6 @@ from typing import TYPE_CHECKING
 
 import pysma
 
-from homeassistant.backports.functools import cached_property
 from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
