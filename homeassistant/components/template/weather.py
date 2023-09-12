@@ -294,7 +294,6 @@ class WeatherTemplate(TemplateEntity, WeatherEntity):
         """Return the daily forecast in native units."""
         return self._forecast_twice_daily
 
-
     @property  # type: ignore[override]
     # Because attribution is a template, it can change at any time
     # and we don't want to cache it.

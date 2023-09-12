@@ -4,8 +4,6 @@ from __future__ import annotations
 from yarl import URL
 
 from homeassistant.backports.functools import cached_property
-from homeassistant.helpers.device_registry import DeviceEntryType
-from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
