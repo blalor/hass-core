@@ -745,7 +745,7 @@ class ZWaveListSensor(ZwaveSensor):
             return list(self.info.primary_value.metadata.states.values())
         return None
 
-    @cached_property  # type: ignore[override]
+    @ property  # type: ignore[override]
     # fget is used which is not compatible with cached_property
     # mypy also doesn't know about fget: https://github.com/python/mypy/issues/6185
     def device_class(self) -> SensorDeviceClass | None:
