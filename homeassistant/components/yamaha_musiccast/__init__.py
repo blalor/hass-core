@@ -8,7 +8,6 @@ from aiomusiccast import MusicCastConnectionException
 from aiomusiccast.capabilities import Capability
 from aiomusiccast.musiccast_device import MusicCastData, MusicCastDevice
 
-from homeassistant.backports.functools import cached_property
 from homeassistant.components import ssdp
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_HOST, Platform

@@ -14,7 +14,6 @@ from pyisy.constants import (
 from pyisy.helpers import NodeProperty
 from pyisy.nodes import Group, Node
 
-from homeassistant.backports.functools import cached_property
 from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
     BinarySensorEntity,

@@ -7,7 +7,6 @@ from pypoint import PointSession
 import voluptuous as vol
 
 from homeassistant import config_entries
-from homeassistant.backports.functools import cached_property
 from homeassistant.components import webhook
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
