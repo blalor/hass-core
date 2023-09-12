@@ -281,6 +281,18 @@ class WeatherTemplate(TemplateEntity, WeatherEntity):
     def forecast(self) -> list[Forecast]:
         """Return the forecast."""
         return self._forecast
+    async def async_forecast_daily(self) -> list[Forecast]:
+        """Return the daily forecast in native units."""
+        return self._forecast_daily
+
+    async def async_forecast_hourly(self) -> list[Forecast]:
+        """Return the daily forecast in native units."""
+        return self._forecast_hourly
+
+    async def async_forecast_twice_daily(self) -> list[Forecast]:
+        """Return the daily forecast in native units."""
+        return self._forecast_twice_daily
+
 
     @property  # type: ignore[override]
     # Because attribution is a template, it can change at any time
