@@ -41,7 +41,6 @@ from homeassistant.components.media_player import (
     SERVICE_PLAY_MEDIA,
     SERVICE_SELECT_SOUND_MODE,
     SERVICE_SELECT_SOURCE,
-    MediaPlayerDeviceClass,
     MediaPlayerEntity,
     MediaPlayerEntityFeature,
     MediaPlayerState,
@@ -178,7 +177,7 @@ class UniversalMediaPlayer(MediaPlayerEntity):
         self._child_state = None
         self._state_template_result = None
         self._state_template = config.get(CONF_STATE_TEMPLATE)
-        self._device_class = config.get(CONF_DEVICE_CLASS)
+        self._attr_device_class = config.get(CONF_DEVICE_CLASS)
         self._attr_unique_id = config.get(CONF_UNIQUE_ID)
         self._browse_media_entity = config.get(CONF_BROWSE_MEDIA_ENTITY)
 
@@ -294,11 +293,6 @@ class UniversalMediaPlayer(MediaPlayerEntity):
         await self.hass.services.async_call(
             DOMAIN, service_name, service_data, blocking=True, context=self._context
         )
-
-    @cached_property
-    def device_class(self) -> MediaPlayerDeviceClass | None:
-        """Return the class of this device."""
-        return self._device_class
 
     @property
     def master_state(self):
