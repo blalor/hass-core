@@ -73,26 +73,6 @@ class NeatoSensor(NeatoEntity, SensorEntity):
         _LOGGER.debug("self._state=%s", self._state)
 
     @property
-    def unique_id(self) -> str:
-        """Return unique ID."""
-        return self._robot_serial
-
-    @property
-    def device_class(self) -> SensorDeviceClass:
-        """Return the device class."""
-        return SensorDeviceClass.BATTERY
-
-    @property
-    def entity_category(self) -> EntityCategory:
-        """Device entity category."""
-        return EntityCategory.DIAGNOSTIC
-
-    @property
-    def available(self) -> bool:
-        """Return availability."""
-        return self._available
-
-    @property
     def native_value(self) -> str | None:
         """Return the state."""
         if self._state is not None:
