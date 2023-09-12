@@ -6,7 +6,6 @@ from typing import Any
 
 from pysmartthings import Attribute, Capability
 
-from homeassistant.backports.functools import cached_property
 from homeassistant.components.cover import (
     ATTR_POSITION,
     DOMAIN as COVER_DOMAIN,
