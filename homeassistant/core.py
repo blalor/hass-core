@@ -85,6 +85,7 @@ if TYPE_CHECKING:
     from .auth import AuthManager
     from .components.http import ApiConfig, HomeAssistantHTTP
     from .config_entries import ConfigEntries
+    from .helpers.entity import EntityInfo
 
 
 STAGE_1_SHUTDOWN_TIMEOUT = 100
@@ -1601,6 +1602,7 @@ class StateMachine:
         attributes: Mapping[str, Any] | None = None,
         force_update: bool = False,
         context: Context | None = None,
+        entity_info: EntityInfo | None = None,
     ) -> None:
         """Set the state of an entity, add entity if it does not exist.
 
@@ -1662,7 +1664,12 @@ class StateMachine:
         domain_index[entity_id] = state
         self._bus.async_fire(
             EVENT_STATE_CHANGED,
-            {"entity_id": entity_id, "old_state": old_state, "new_state": state},
+            {
+                "entity_id": entity_id,
+                "old_state": old_state,
+                "new_state": state,
+                "entity_info": entity_info,
+            },
             EventOrigin.local,
             context,
             time_fired=now,
