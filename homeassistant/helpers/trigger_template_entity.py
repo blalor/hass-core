@@ -7,7 +7,6 @@ from typing import Any
 
 import voluptuous as vol
 
-from homeassistant.backports.functools import cached_property
 from homeassistant.components.sensor import (
     CONF_STATE_CLASS,
     DEVICE_CLASSES_SCHEMA,
