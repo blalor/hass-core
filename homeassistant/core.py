@@ -1238,6 +1238,7 @@ class State:
         "last_changed",
         "last_updated",
         "context",
+        "entity_info",
         "domain",
         "object_id",
         "_as_dict",
@@ -1254,6 +1255,7 @@ class State:
         last_updated: datetime.datetime | None = None,
         context: Context | None = None,
         validate_entity_id: bool | None = True,
+        entity_info: EntityInfo | None = None,
     ) -> None:
         """Initialize a new state."""
         state = str(state)
@@ -1272,6 +1274,7 @@ class State:
         self.last_updated = last_updated or dt_util.utcnow()
         self.last_changed = last_changed or self.last_updated
         self.context = context or Context()
+        self.entity_info = entity_info
         self.domain, self.object_id = split_entity_id(self.entity_id)
         self._as_dict: ReadOnlyDict[str, Collection[Any]] | None = None
         self._as_dict_json: str | None = None
@@ -1654,6 +1657,7 @@ class StateMachine:
             now,
             context,
             old_state is None,
+            entity_info,
         )
         if old_state is not None:
             old_state.expire()
@@ -1668,7 +1672,6 @@ class StateMachine:
                 "entity_id": entity_id,
                 "old_state": old_state,
                 "new_state": state,
-                "entity_info": entity_info,
             },
             EventOrigin.local,
             context,
